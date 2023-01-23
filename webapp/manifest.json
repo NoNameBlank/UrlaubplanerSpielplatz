@@ -103,7 +103,7 @@
         },
         {
           "name": "RouteDashboard",
-          "pattern": "RouteDashboard",
+          "pattern": "RouteDashboard/{sBenutzerLogin}/{sBenutzerPasswort}",
           "target": [
             "TargetDashboard"
           ]
