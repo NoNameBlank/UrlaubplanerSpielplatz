@@ -18,84 +18,60 @@ sap.ui.define([
                 this.loadData();//
                 var sBenutzerLogin = this.byId("benutzerInput").getValue();
                 var sBenutzerPasswort = this.byId("passwordInput").getValue();
-                
-                //Test kommentar via push auf Branch
-                if(!this.checkUserExist(sBenutzerLogin, sBenutzerPasswort)){
-                    sap.m.MessageToast.show("BenutzerName oder Passwort falsch!");
-                }else{
-                  
-                  
-                    this.getOwnerComponent().getRouter().navTo("RouteDashboard", {
-
-                        sBenutzerLogin: sBenutzerLogin,
-                        sBenutzerPasswort: sBenutzerPasswort
-    
-                    });  
-              
-                                 
-                                 
-                                  
-                  
-                  
-                    //     var oPopup = new sap.m.Dialog({
-                    //     title: "Fehler",
-                    //     type: "Message",
-                    //     content: new sap.m.Text({
-                    //         text: "Der angegebene Benutzer existiert nicht."
-                    //     }),
-                    //     beginButton: new sap.m.Button({
-                    //         text: "Ok",
-                    //         press: function () {
-                    //             oPopup.close();
-                    //         }
-                    //     }),
-                    //     afterClose: function () {
-                    //         oPopup.destroy();
-                    //     }
-                    // });
-                    // this.getView().addDependent(oPopup);
-                    // oPopup.open();
-                
             
+                var userId = this.checkUserExist(sBenutzerLogin, sBenutzerPasswort);
+              
+
+                if (!userId) {
+                    sap.m.MessageToast.show("BenutzerName oder Passwort falsch!");
+                } else {
+                                  
+                    this.getOwnerComponent().getRouter().navTo("RouteDashboard", {
+                         userId: userId 
+                         
+                        });
+                        debugger;
                 }
 
 
+        
 
 
 
-                
+
+
+
             },
             //DIe FUnktion soll später i Backend geladen werden
             checkUserExist: function (loginName, loginPasswort) {
-                
+
 
                 var oModel = this.getView().getModel("oUserModel");
                 var aEntries = oModel.getProperty("/people");
                 var oEntry = aEntries.find(function (oEntry) {
+                  
                     return oEntry.name === loginName;
                 });
                 if (oEntry) {
-                 
-                    if (oEntry.passwort === loginPasswort){
-                        return ture;
-                    }else{
+                    if (oEntry.passwort === loginPasswort) {
+                        return oEntry.id; //return
+                        debugger;
+                    } else {
                         return false;
                     }
 
-                    
-                }else{
+
+                } else {
 
                     return false;
                 }
-                
 
 
-             
-                
-                
 
 
             },
+
+
             loadData: function () {
                 var oModel = new sap.ui.model.json.JSONModel();
                 oModel.setData({
@@ -140,7 +116,7 @@ sap.ui.define([
 
 
                 this.getView().setModel(oModel, "oUserModel");
-                
+
             },
 
         });
