@@ -19,7 +19,7 @@ sap.ui.define([
                 var sBenutzerLogin = this.byId("benutzerInput").getValue();
                 var sBenutzerPasswort = this.byId("passwordInput").getValue();
                 
-
+                //Test kommentar via push auf Branch
                 if(!this.checkUserExist(sBenutzerLogin, sBenutzerPasswort)){
                     sap.m.MessageToast.show("BenutzerName oder Passwort falsch!");
                 }else{
