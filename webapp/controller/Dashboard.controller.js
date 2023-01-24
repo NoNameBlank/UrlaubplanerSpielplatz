@@ -15,10 +15,9 @@ sap.ui.define([
                 this.oOwnerComponent = this.getOwnerComponent();
                 this.oRouter = this.oOwnerComponent.getRouter();
                 this.oRouter.attachRouteMatched(this.onRouteMatched, this);
-                
-                
-                
-                var oVacationModel = new sap.ui.model.json.JSONModel();
+
+                /*
+                var oUserModel = new sap.ui.model.json.JSONModel();
                 var User = {
                     Username: "Mock",
                     VacationLeft: "0",
@@ -26,89 +25,87 @@ sap.ui.define([
                     VacationLastYear: "10",
                     Role: "Teamleiter"
                 }
-                oVacationModel.setProperty("/User", User);
-                this.getView().setModel(oVacationModel, "VacationModel");
-                this.getView().getModel("VacationModel").setProperty("/Vacationleft", 0);
-<<<<<<< HEAD
+                oUserModel.setProperty("/User", User);
+                this.getView().setModel(oUserModel, "UserModel");
+                this.getView().getModel("UserModel").setProperty("/Vacationleft", 0);
                 //var userId = oRouter.getRoute("RouteDashboard").getParameter("userId");
-=======
-           
->>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
                 debugger;
+                */
 
 
 
-
-                this.loadData();
+                
 
 
             },
             onRouteMatched: function (oEvent) {
-<<<<<<< HEAD
-                 
-                 var userId = oEvent.getParameter("arguments");
-                 
-                 
-=======
-                 var userId = oEvent.getParameter("arguments");
-                 debugger;
-                // var iBenutzerId = userId.iBenutzerId;
-                // debugger;
->>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
+                debugger;
+                var userId = oEvent.getParameter("arguments").userId;
+                //  console.warn(userId);
+
+                this.loadDataIntoUser(userId);
+           
                 /*
                 var login = oEvent.getParameter("arguments");
-               
-                
-                this.getView().getModel("VacationModel").setProperty("/User/Username", this.sBenutzerLogin);
+                var sBenutzerLogin = login.sBenutzerLogin;
+                var sBenutzerPasswort = login.sBenutzerPasswort;
+                this.sBenutzerLogin = sBenutzerLogin;
+                this.sBenutzerPasswort = sBenutzerPasswort;
+                this.getView().getModel("UserModel").setProperty("/User/Username", this.sBenutzerLogin);
                 */
 
 
 
                 this.setFirstDay();
-                // this.getView().getModel("VacationModel").setProperty("/FirstDay", Date);
+                // this.getView().getModel("UserModel").setProperty("/FirstDay", Date);
 
 
             },
 
             loadData: function () {
                 /* var oModel = new sap.ui.model.json.JSONModel();
-                // oModel.setData({
-                //     people: [{
-                //         pic: "",
-                //         name: "111",
-                //         role: "Teamleiter",
-                //         freeDays: [5, 6],
-                //         freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
-                //         appointments: [{
-                //             pic: "",
-                //             title: "Urlaub",
-                //             start: new Date(2023, 1, 1, 11, 30),
-                //             end: new Date(2023, 2, 3, 11, 30),
-                //             type: "Type03",
-                //             tentative: true
-                //         }]
-                //     },
-                //     {
-                //         pic: "",
-                //         name: "222",
-                //         role: "Mitarbeiter",
-                //         freeDays: [5, 6],
-                //         freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
-                //         appointments: [{
-                //             pic: "",
-                //             title: "Urlaub",
-                //             start: new Date(2023, 1, 1, 11, 30),
-                //             end: new Date(2023, 2, 3, 11, 30),
-                //             type: "Type03",
-                //             tentative: true
-                //         }]
-                //     },
-                //     ]
-                // });
-                 this.getView().setModel(oModel, "oOwnModel");
+                oModel.setData({
+                    people: [{
+                        pic: "",
+                        name: "111",
+                        role: "Teamleiter",
+                        freeDays: [5, 6],
+                        freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
+                        appointments: [{
+                            pic: "",
+                            title: "Urlaub",
+                            start: new Date(2023, 1, 1, 11, 30),
+                            end: new Date(2023, 2, 3, 11, 30),
+                            type: "Type03",
+                            tentative: true
+                        }]
+                    },
+                    {
+                        pic: "",
+                        name: "222",
+                        role: "Mitarbeiter",
+                        freeDays: [5, 6],
+                        freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
+                        appointments: [{
+                            pic: "",
+                            title: "Urlaub",
+                            start: new Date(2023, 1, 1, 11, 30),
+                            end: new Date(2023, 2, 3, 11, 30),
+                            type: "Type03",
+                            tentative: true
+                        }]
+                    },
+                    ]
+                });
+                 this.getView().setModel(oModel, "UserModel");
                 */
-               
-               
+
+                //userModel
+
+                
+
+
+
                 // MOCK-Data Team
                 var oTeamModel = new sap.ui.model.json.JSONModel();
                 oTeamModel.setData({
@@ -129,7 +126,7 @@ sap.ui.define([
                         }],
                     },
                     {
-                        id:4, 
+                        id: 4,
                         pic: "",
                         name: "4",
                         role: "Teamleiter",
@@ -164,6 +161,75 @@ sap.ui.define([
                 });
                 this.getView().setModel(oTeamModel, "oTeamModel");
             },
+
+
+            loadDataIntoUser: function (userId) {
+
+                var oUserModel = new sap.ui.model.json.JSONModel();
+                oUserModel.setData({
+                    people: [{
+                        id: 1,
+                        pic: "",
+                        name: "11",
+                        passwort: "123",
+                        role: "Teamleiter",
+                        vacation: 31,
+                        vacationLeft: 5,
+                        vacationPlaned: 20,
+                        vacationLastYear: 10,
+                        freeDays: [5, 6],
+                        freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
+                        appointments: [{
+                            pic: "",
+                            title: "Urlaub",
+                            start: new Date(2023, 1, 1, 11, 30),
+                            end: new Date(2023, 2, 3, 11, 30),
+                            type: "Type01",
+                            tentative: true
+                        }]
+                        
+                    },
+                    {
+                        id: 2,
+                        pic: "",
+                        name: "12",
+                        passwort: "321",
+                        role: "Mitarbeiter",
+                        vacation: 31,
+                        vacationLeft: 5,
+                        vacationPlaned: 20,
+                        vacationLastYear: 10,
+                        freeDays: [5, 6],
+                        freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
+                       //Die appointments Sind für den Kalender sie beschreiben sozusagen den Urlaub
+                        appointments: [{
+                            pic: "",
+                            title: "Urlaub",
+                            start: new Date(2023, 1, 1, 11, 30),
+                            end: new Date(2023, 2, 3, 11, 30),
+                            type: "Type03",
+                            tentative: true
+                        }]
+                    },
+                    ]
+                });
+                // oUserModel.setProperty("/User", User);
+                // this.getView().setModel(oUserModel, "UserModel");
+                var aEntries = oUserModel.getProperty("/people");
+                debugger;
+                var oUser = aEntries.find(function (oUser) {
+                    return oUser.id === parseInt(userId);
+                })
+                 oUserModel.setProperty("/User", oUser);
+
+                this.getView().setModel(oUserModel, "UserModel");
+                
+                //oUser.appointmants.push new date z.b.
+
+
+
+            },
+
 
             onClick: function () {
 
@@ -216,7 +282,7 @@ sap.ui.define([
 
 
                 this.closeDialog();
-                MessageToast.show(`Hallo ${this.getView().getModel("VacationModel").getProperty("/User/Username")}, du hast deinen Urlaubsantrag vom ${sUrlaubStart.toLocaleDateString()} bis zum ${sUrlaubEnde.toLocaleDateString()} abgeschickt`)
+                MessageToast.show(`Hallo ${this.getView().getModel("UserModel").getProperty("/User/Username")}, du hast deinen Urlaubsantrag vom ${sUrlaubStart.toLocaleDateString()} bis zum ${sUrlaubEnde.toLocaleDateString()} abgeschickt`)
 
 
             },
@@ -234,7 +300,7 @@ sap.ui.define([
 
             },
 
-            
+
 
 
 
