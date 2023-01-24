@@ -18,91 +18,67 @@ sap.ui.define([
                 this.loadData();//
                 var sBenutzerLogin = this.byId("benutzerInput").getValue();
                 var sBenutzerPasswort = this.byId("passwordInput").getValue();
-                
-
-                if(!this.checkUserExist(sBenutzerLogin, sBenutzerPasswort)){
-                    sap.m.MessageToast.show("BenutzerName oder Passwort falsch!");
-                }else{
-                  
-                  
-                    this.getOwnerComponent().getRouter().navTo("RouteDashboard", {
-
-                        sBenutzerLogin: sBenutzerLogin,
-                        sBenutzerPasswort: sBenutzerPasswort
-    
-                    });  
-              
-                                 
-                                 
-                                  
-                  
-                  
-                    //     var oPopup = new sap.m.Dialog({
-                    //     title: "Fehler",
-                    //     type: "Message",
-                    //     content: new sap.m.Text({
-                    //         text: "Der angegebene Benutzer existiert nicht."
-                    //     }),
-                    //     beginButton: new sap.m.Button({
-                    //         text: "Ok",
-                    //         press: function () {
-                    //             oPopup.close();
-                    //         }
-                    //     }),
-                    //     afterClose: function () {
-                    //         oPopup.destroy();
-                    //     }
-                    // });
-                    // this.getView().addDependent(oPopup);
-                    // oPopup.open();
-                
             
+                var userId = this.checkUserExist(sBenutzerLogin, sBenutzerPasswort);
+              
+
+                if (!userId) {
+                    sap.m.MessageToast.show("BenutzerName oder Passwort falsch!");
+                } else {
+                                  
+                    this.getOwnerComponent().getRouter().navTo("RouteDashboard", {
+                         userId: userId 
+                         
+                        });
+                        
                 }
 
 
+        
 
 
 
-                
+
+
+
             },
             //DIe FUnktion soll später i Backend geladen werden
             checkUserExist: function (loginName, loginPasswort) {
-                
+
 
                 var oModel = this.getView().getModel("oUserModel");
                 var aEntries = oModel.getProperty("/people");
                 var oEntry = aEntries.find(function (oEntry) {
+                  
                     return oEntry.name === loginName;
                 });
                 if (oEntry) {
-                 
-                    if (oEntry.passwort === loginPasswort){
-                        return ture;
-                    }else{
+                    if (oEntry.passwort === loginPasswort) {
+                        return oEntry.id; //return
+                        
+                    } else {
                         return false;
                     }
 
-                    
-                }else{
+
+                } else {
 
                     return false;
                 }
-                
 
 
-             
-                
-                
 
 
             },
+
+
             loadData: function () {
                 var oModel = new sap.ui.model.json.JSONModel();
                 oModel.setData({
                     people: [{
                         id: 1,
                         pic: "",
-                        name: "Luca",
+                        name: "11",
                         passwort: "123",
                         role: "Teamleiter",
                         freeDays: [5, 6],
@@ -119,7 +95,11 @@ sap.ui.define([
                     {
                         id: 2,
                         pic: "",
-                        name: "Phil",
+<<<<<<< HEAD
+                        name: "12",
+=======
+                        name: "22",
+>>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
                         passwort: "321",
                         role: "Mitarbeiter",
                         freeDays: [5, 6],
@@ -140,7 +120,7 @@ sap.ui.define([
 
 
                 this.getView().setModel(oModel, "oUserModel");
-                
+
             },
 
         });
