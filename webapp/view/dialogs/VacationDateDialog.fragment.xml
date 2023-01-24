@@ -2,13 +2,14 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:core="sap.ui.core">
 
-    <Dialog id="vacationPickerDialog" title="Hallo Philipp">
+    <Dialog id="vacationPickerDialog" title="Hey, {UserModel>/User/name}">
 
 
         <content>
 
         <DatePicker id="datePicker" placeholder="Erster Urlaubstag" locale="de-DE" displayFormat="dd.MM.yyyy"/>
         <DatePicker id="datePicker2" placeholder="Letzter Urlaubstag" locale="de-DE" displayFormat="dd.MM.yyyy"/>
+        <Input id="benutzerGrund" type="Text" placeholder="Grund " tooltip="Grund z.B. Sonderurlaub, Normalurlaub, Zwangsurlaub" />
 
         </content>
         <endButton>

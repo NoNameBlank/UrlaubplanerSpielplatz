@@ -271,6 +271,8 @@ sap.ui.define([
                 this.byId("vacationPickerDialog").close();
                 this.byId("datePicker").setValue(null);
                 this.byId("datePicker2").setValue(null);
+                this.byId("benutzerGrund").setValue(null);
+
 
             },
 
@@ -278,11 +280,12 @@ sap.ui.define([
             sendVacation: function () {
                 var sUrlaubStart = this.byId("datePicker").getDateValue();
                 var sUrlaubEnde = this.byId("datePicker2").getDateValue();
-
+                var sGrund = this.byId("benutzerGrund").getValue();
 
 
                 this.closeDialog();
-                MessageToast.show(`Hallo ${this.getView().getModel("UserModel").getProperty("/User/Username")}, du hast deinen Urlaubsantrag vom ${sUrlaubStart.toLocaleDateString()} bis zum ${sUrlaubEnde.toLocaleDateString()} abgeschickt`)
+                
+                MessageToast.show(`Hallo ${this.getView().getModel("UserModel").getProperty("/User/Username")}, du hast deinen Urlaubsantrag vom ${sUrlaubStart.toLocaleDateString()} bis zum ${sUrlaubEnde.toLocaleDateString()} mit Folgendem Grund: ${sGrund.parseValue()} abgeschickt`)
 
 
             },
