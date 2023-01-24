@@ -29,7 +29,7 @@ sap.ui.define([
                     this.getOwnerComponent().getRouter().navTo("RouteDashboard", {
                          userId: userId 
                          
-                        });debugger;
+                        });
                         
                 }
 
