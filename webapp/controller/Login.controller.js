@@ -29,7 +29,7 @@ sap.ui.define([
                     this.getOwnerComponent().getRouter().navTo("RouteDashboard", {
                          userId: userId 
                          
-                        });
+                        });debugger;
                         
                 }
 
@@ -81,37 +81,24 @@ sap.ui.define([
                         name: "11",
                         passwort: "123",
                         role: "Teamleiter",
-                        freeDays: [5, 6],
-                        freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
-                        appointments: [{
-                            pic: "",
-                            title: "Urlaub",
-                            start: new Date(2023, 1, 1, 11, 30),
-                            end: new Date(2023, 2, 3, 11, 30),
-                            type: "Type03",
-                            tentative: true
-                        }]
+                        // vacation: 31,
+                        // vacationLeft: 5,
+                        // vacationPlaned: 20,
+                        // vacationLastYear: 10,
+                        
+                        
                     },
                     {
                         id: 2,
                         pic: "",
-<<<<<<< HEAD
                         name: "12",
-=======
-                        name: "22",
->>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
                         passwort: "321",
                         role: "Mitarbeiter",
-                        freeDays: [5, 6],
-                        freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
-                        appointments: [{
-                            pic: "",
-                            title: "Urlaub",
-                            start: new Date(2023, 1, 1, 11, 30),
-                            end: new Date(2023, 2, 3, 11, 30),
-                            type: "Type03",
-                            tentative: true
-                        }]
+                        // vacation: 31,
+                        // vacationLeft: 5,
+                        // vacationPlaned: 20,
+                        // vacationLastYear: 10,
+                        
                     },
                     ]
                 });
