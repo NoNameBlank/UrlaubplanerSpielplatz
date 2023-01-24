@@ -95,7 +95,7 @@
       },
       "routes": [
         {
-          "name": "RouteLogin",
+          "name": "RouteLogin/{userId}",
           "pattern": ":?query:",
           "target": [
             "TargetLogin"

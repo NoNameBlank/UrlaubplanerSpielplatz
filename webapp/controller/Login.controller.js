@@ -30,7 +30,7 @@ sap.ui.define([
                          userId: userId 
                          
                         });
-                        debugger;
+                        
                 }
 
 
@@ -55,7 +55,7 @@ sap.ui.define([
                 if (oEntry) {
                     if (oEntry.passwort === loginPasswort) {
                         return oEntry.id; //return
-                        debugger;
+                        
                     } else {
                         return false;
                     }
@@ -78,7 +78,7 @@ sap.ui.define([
                     people: [{
                         id: 1,
                         pic: "",
-                        name: "Luca",
+                        name: "11",
                         passwort: "123",
                         role: "Teamleiter",
                         freeDays: [5, 6],
@@ -95,7 +95,7 @@ sap.ui.define([
                     {
                         id: 2,
                         pic: "",
-                        name: "Phil",
+                        name: "12",
                         passwort: "321",
                         role: "Mitarbeiter",
                         freeDays: [5, 6],

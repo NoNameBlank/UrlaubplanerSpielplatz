@@ -26,7 +26,7 @@ sap.ui.define([
                 oVacationModel.setProperty("/User", User);
                 this.getView().setModel(oVacationModel, "VacationModel");
                 this.getView().getModel("VacationModel").setProperty("/Vacationleft", 0);
-                var userId = oRouter.getRoute("RouteDashboard").getParameter("userId");
+                //var userId = oRouter.getRoute("RouteDashboard").getParameter("userId");
                 debugger;
 
 
@@ -37,9 +37,10 @@ sap.ui.define([
 
             },
             onRouteMatched: function (oEvent) {
-                // var userId = oEvent.getParameter("arguments");
-                // var iBenutzerId = userId.iBenutzerId;
-                // debugger;
+                 
+                 var userId = oEvent.getParameter("arguments");
+                 
+                 
                 /*
                 var login = oEvent.getParameter("arguments");
                 var sBenutzerLogin = login.sBenutzerLogin;
@@ -100,8 +101,9 @@ sap.ui.define([
                 var oTeamModel = new sap.ui.model.json.JSONModel();
                 oTeamModel.setData({
                     people: [{
+                        id: 3,
                         pic: "",
-                        name: "2",
+                        name: "3",
                         role: "Backoffice",
                         freeDays: [5, 6],
                         freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
@@ -115,8 +117,9 @@ sap.ui.define([
                         }],
                     },
                     {
+                        id:4, 
                         pic: "",
-                        name: "3",
+                        name: "4",
                         role: "Teamleiter",
                         freeDays: [5, 6],
                         freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
@@ -130,8 +133,9 @@ sap.ui.define([
                         }],
                     },
                     {
+                        id: 5,
                         pic: "",
-                        name: "4",
+                        name: "5",
                         role: "Mitarbeiter",
                         freeDays: [5, 6],
                         freeHours: [0, 1, 2, 3, 4, 5, 6, 17, 19, 20, 21, 22, 23],
