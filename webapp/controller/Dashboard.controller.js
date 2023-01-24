@@ -15,6 +15,9 @@ sap.ui.define([
                 this.oOwnerComponent = this.getOwnerComponent();
                 this.oRouter = this.oOwnerComponent.getRouter();
                 this.oRouter.attachRouteMatched(this.onRouteMatched, this);
+                
+                
+                
                 var oVacationModel = new sap.ui.model.json.JSONModel();
                 var User = {
                     Username: "Mock",
@@ -26,7 +29,11 @@ sap.ui.define([
                 oVacationModel.setProperty("/User", User);
                 this.getView().setModel(oVacationModel, "VacationModel");
                 this.getView().getModel("VacationModel").setProperty("/Vacationleft", 0);
+<<<<<<< HEAD
                 //var userId = oRouter.getRoute("RouteDashboard").getParameter("userId");
+=======
+           
+>>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
                 debugger;
 
 
@@ -37,16 +44,21 @@ sap.ui.define([
 
             },
             onRouteMatched: function (oEvent) {
+<<<<<<< HEAD
                  
                  var userId = oEvent.getParameter("arguments");
                  
                  
+=======
+                 var userId = oEvent.getParameter("arguments");
+                 debugger;
+                // var iBenutzerId = userId.iBenutzerId;
+                // debugger;
+>>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
                 /*
                 var login = oEvent.getParameter("arguments");
-                var sBenutzerLogin = login.sBenutzerLogin;
-                var sBenutzerPasswort = login.sBenutzerPasswort;
-                this.sBenutzerLogin = sBenutzerLogin;
-                this.sBenutzerPasswort = sBenutzerPasswort;
+               
+                
                 this.getView().getModel("VacationModel").setProperty("/User/Username", this.sBenutzerLogin);
                 */
 

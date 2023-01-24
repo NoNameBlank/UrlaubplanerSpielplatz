@@ -95,7 +95,11 @@ sap.ui.define([
                     {
                         id: 2,
                         pic: "",
+<<<<<<< HEAD
                         name: "12",
+=======
+                        name: "22",
+>>>>>>> 5df99ceda1830fefeb12af2e79283dc34746556c
                         passwort: "321",
                         role: "Mitarbeiter",
                         freeDays: [5, 6],
